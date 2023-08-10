@@ -1,0 +1,31 @@
+-- CreateTable
+CREATE TABLE `Details` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `code` VARCHAR(191) NOT NULL,
+    `reg` VARCHAR(191) NOT NULL,
+    `class` VARCHAR(191) NOT NULL,
+    `section` VARCHAR(191) NOT NULL,
+    `exam` VARCHAR(191) NOT NULL,
+
+    UNIQUE INDEX `Details_reg_key`(`reg`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `results` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `reg` VARCHAR(191) NOT NULL,
+    `Q1` INTEGER NOT NULL,
+    `Q2` INTEGER NOT NULL,
+    `Q3` INTEGER NOT NULL,
+    `Q4` INTEGER NOT NULL,
+    `Q5` INTEGER NOT NULL,
+    `Q6` INTEGER NOT NULL,
+    `Q7` INTEGER NOT NULL,
+    `Q8` INTEGER NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- AddForeignKey
+ALTER TABLE `results` ADD CONSTRAINT `results_reg_fkey` FOREIGN KEY (`reg`) REFERENCES `Details`(`reg`) ON DELETE RESTRICT ON UPDATE CASCADE;
