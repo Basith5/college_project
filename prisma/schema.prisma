@@ -10,19 +10,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Details {
-  id       Int      @id @default(autoincrement())
-  code     String
-  reg      String   @unique
-  class    String
-  section  String
-  exam     String
-  results  results[]
-}
-
 model results {
   id       Int      @id @default(autoincrement())
   reg      String
+  code     String
+  class    String
+  section  String
+  exam     String
   Q1       Int
   Q2       Int
   Q3       Int
@@ -31,5 +25,30 @@ model results {
   Q6       Int
   Q7       Int
   Q8       Int
-  details  Details  @relation(fields: [reg], references: [reg])
+  Q9       Int
+  Q10      Int
+  Q11      Int
+  Q12      Int
+  Q13      Int
+  Q14      Int
+  Q15      Int
+  Q16      Int
+  Q17      Int
+  Q18      Int
+  Q19      Int
+  Q20      Int
+  Q21      Int
+  Q22      Int
+  Q23      Int
+  Q24      Int
+  Q25      Int
+  Q26      Int
+  Q27      Int
+  Q28      Int
+  ASG      Int
+  CO1      Int
+  CO2      Int
+  CO3      Int
+  CO4      Int
+  CO5      Int
 }
