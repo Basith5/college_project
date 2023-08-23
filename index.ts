@@ -16,5 +16,5 @@ const PORT = process.env.PORT || 3000;
 app.use('/user', userRouter);
 
 app.listen(PORT, () => {
-    console.log(`ag server listening on ${PORT}`)    
+    console.log(`college backend server listening on ${PORT}`)    
 })
