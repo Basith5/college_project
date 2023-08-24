@@ -1,3 +1,4 @@
+import { type } from "os"
 import { z } from "zod"
 
 
@@ -27,15 +28,25 @@ export const qSchema = z.object({
     Q18: z.number({required_error: "Q18 mark is required", }).max(3),
     Q19: z.number({required_error: "Q19 mark is required", }).max(3),
     Q20: z.number({required_error: "Q20 mark is required", }).max(3),
-    Q21: z.number({required_error: "Q21 mark is required", }).max(3),
-    Q22: z.number({required_error: "Q22 mark is required", }).max(3),
-    Q23: z.number({required_error: "Q23 mark is required", }).max(3),
-    Q24: z.number({required_error: "Q24 mark is required", }).max(3),
-    Q25: z.number({required_error: "Q25 mark is required", }).max(3),
-    Q26: z.number({required_error: "Q26 mark is required", }).max(3),
-    Q27: z.number({required_error: "Q27 mark is required", }).max(3),
-    Q28: z.number({required_error: "Q28 mark is required", }).max(3),
-    ASG: z.number({required_error: "assignment mark is required", }),
+    Q21: z.number({required_error: "Q21 mark is required", }).max(4),
+    Q22: z.number({required_error: "Q22 mark is required", }).max(4),
+    Q23: z.number({required_error: "Q23 mark is required", }).max(4),
+    Q24: z.number({required_error: "Q24 mark is required", }).max(4),
+    Q25: z.number({required_error: "Q25 mark is required", }).max(4),
+    Q26: z.number({required_error: "Q26 mark is required", }).max(10),
+    Q27: z.number({required_error: "Q27 mark is required", }).max(10),
+    Q28: z.number({required_error: "Q28 mark is required", }).max(10),
+})
+
+export const updateCiaSchema = z.object({
+    reg: z.string({required_error: "Register Number is required", }),
+    code: z.string({required_error: "code is required", }),
+    class: z.string({required_error: "Register Number is required", }).optional(),
+    section: z.string({required_error: "Section is required", }).optional(),
+    exam: z.string({required_error: "exam type is required", }),
+    Q1: z.number().optional(),
+    Q2: z.number().optional()
 })
 
 export type qData = z.infer<typeof qSchema>
+export type ciaData = z.infer<typeof updateCiaSchema>

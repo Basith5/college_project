@@ -45,7 +45,6 @@ model results {
   Q26      Int
   Q27      Int
   Q28      Int
-  ASG      Int
   CO1      Int
   CO2      Int
   CO3      Int
