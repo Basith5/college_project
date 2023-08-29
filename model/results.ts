@@ -1,7 +1,6 @@
 import { type } from "os"
 import { z } from "zod"
 
-
 export const qSchema = z.object({
     reg: z.string({required_error: "Register Number is required", }),
     code: z.string({required_error: "code is required", }),
@@ -48,5 +47,15 @@ export const updateCiaSchema = z.object({
     Q2: z.number().optional()
 })
 
+export const psoSchema = z.object({
+    COS: z.string({required_error: "COS is required (PSO1,PSO2,...,PSO5)", }),
+    CO1: z.number(),
+    CO2: z.number(),
+    CO3: z.number(),
+    CO4: z.number(),
+    CO5: z.number(),
+})
+
 export type qData = z.infer<typeof qSchema>
 export type ciaData = z.infer<typeof updateCiaSchema>
+export type psoData = z.infer<typeof psoSchema>
